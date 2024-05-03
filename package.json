@@ -1,7 +1,7 @@
 {
-  "name": "markdown-it-obsidian-imgsize",
+  "name": "markdown-it-multi-imgsize",
   "version": "0.1.1",
-  "description": "A markdown-it plugin, adding width (and height) attributes to image elements, according to the syntax of external images in Obsidian.",
+  "description": "A markdown-it plugin, adding width (and height) attributes to image elements, according to the syntax of external images in Obsidian, plus an extra width percentage support.",
   "keywords": [
     "markdown",
     "markdown-it",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uuanqin/markdown-it-obsidian-imgsize.git"
+    "url": "git+https://github.com/nand2/markdown-it-obsidian-imgsize.git"
   },
   "author": "wuanqin <wuanqin@mail.ustc.edu.cn>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uuanqin/markdown-it-obsidian-imgsize/issues"
+    "url": "https://github.com/nand2/markdown-it-obsidian-imgsize/issues"
   },
-  "homepage": "https://github.com/uuanqin/markdown-it-obsidian-imgsize#readme",
+  "homepage": "https://github.com/nand2/markdown-it-obsidian-imgsize#readme",
   "devDependencies": {
     "markdown-it": "^13.0.2"
   }

@@ -9,7 +9,7 @@ module.exports = function renderer_image_plugin(md, option) {
     const token = tokens[idx];
 
     // See https://help.obsidian.md/Editing+and+formatting/Basic+formatting+syntax#External+images
-    var obsidian_imgsize_RE = /\| *([0-9]+) *(x *([0-9]+))? *$/;
+    var obsidian_imgsize_RE = /\| *([0-9]+%?) *(x *([0-9]+))? *$/;
     let imgAlt_original = md.utils.escapeHtml(token.content)
 
     let imgAlt = imgAlt_original.replace(obsidian_imgsize_RE,"");
@@ -32,10 +32,12 @@ module.exports = function renderer_image_plugin(md, option) {
         token.attrJoin('height', height);
         imgCont = imgCont.replace(/( *?\/)?>$/, ` width="${width}px" height="${height}px"` + '$1>');
       }else{
-        // e.g. ![img|100](/path/to/img)
-        width = parseInt(matchObj[1]);
-        token.attrJoin('width', width);
-        imgCont = imgCont.replace(/( *?\/)?>$/, ` width="${width}px"` + '$1>');
+        // e.g. ![img|100](/path/to/img) or ![img|100%](/path/to/img)
+        let isPercentage = matchObj[1].slice(-1) === '%';
+        let unit = isPercentage ? '%' : 'px';
+        width = parseInt(isPercentage ? matchObj[1].slice(0,-1) : matchObj[1]);
+        token.attrJoin('width', isPercentage ? matchObj[1] : width);
+        imgCont = imgCont.replace(/( *?\/)?>$/, ` width="${width}${unit}"` + '$1>');
       }
     }
     return imgCont;
