@@ -1,4 +1,16 @@
-# markdown-it-obsidian-imgsize
+# markdown-it-multi-imgsize
+
+Forked from [the original markdown-it-obsidian-imgsize](https://github.com/uuanqin/markdown-it-obsidian-imgsize), it adds support for width percentage. It transforms
+
+```markdown
+![A cat|40%](cat.jpg)
+```
+to
+```html
+<p><img src="cat.jpg" alt="A cat" width="40%"></p>
+```
+
+## Original documentation
 
 language: English | [中文](./README_zh.md)
 
@@ -22,14 +34,14 @@ this plugin does not use the Internet when processing online images.
 ## Install
 
 ```bash
-npm i markdown-it-obsidian-imgsize --save
+npm i markdown-it-multi-imgsize --save
 ```
 
 ## Use
 
 ```js
 const md = require('markdown-it')();
-const mdImgSizePlg = require('markdown-it-obsidian-imgsize');
+const mdImgSizePlg = require('markdown-it-multi-imgsize');
 md.use(mdImgSizePlg);
 
 const content = '![A cat|100](cat.jpg)';
